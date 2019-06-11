@@ -35,11 +35,14 @@ const mapProps = allProps => {
   props.onChange = e => {
     switch (carrier) {
       case 'dnb':
-        return allProps.onChange(e)
+        return allProps.onChange && allProps.onChange(e)
 
       case 'sb1':
       default:
-        return allProps.onChange({ checked: e.currentTarget.checked })
+        return (
+          allProps.onChange &&
+          allProps.onChange({ checked: e.currentTarget.checked })
+        )
     }
   }
 

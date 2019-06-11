@@ -25,22 +25,28 @@ const mapProps = allProps => {
         props.checked = props.defaultChecked
         props.defaultChecked = null
       }
+
+      if (props.onChange) {
+        delete props.onChange
+        props.on_change = e => {
+          return allProps.onChange && allProps.onChange(e)
+        }
+      }
+
       break
     }
     case 'sb1':
     default:
+      if (props.onChange) {
+        props.onChange = e => {
+          return (
+            allProps.onChange &&
+            allProps.onChange({ checked: e.currentTarget.checked })
+          )
+        }
+      }
+
       break
-  }
-
-  props.onChange = e => {
-    switch (carrier) {
-      case 'dnb':
-        return allProps.onChange(e)
-
-      case 'sb1':
-      default:
-        return allProps.onChange({ checked: e.currentTarget.checked })
-    }
   }
 
   return props
