@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Eufemia Gatsby Example'
+    title: 'POC of Eufemia / FFE'
   },
   plugins: [
     'gatsby-plugin-sass',
