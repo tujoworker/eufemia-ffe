@@ -12,6 +12,11 @@ body {
 }
 .app-wrapper-inner {
   max-width: 60rem;
+
+  // for large screesn, always use 60rem
+  @media (min-width: 40em) {
+    width: 60rem;
+  }
 }
 .app-header {
   padding: 2rem 1rem;
