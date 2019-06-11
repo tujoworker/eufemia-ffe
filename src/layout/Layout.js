@@ -5,13 +5,13 @@ import { StaticQuery, graphql } from 'gatsby'
 import App from './App'
 
 // hacked FFE
-import Provider from '../hacked-ffe/Provider'
+// import Provider from '../hacked-ffe/Provider'
 
 // This polyfill is only needed if we use Styled Components (CSS-in-JS) syntax
 // import cssVars from 'css-vars-ponyfill'
 // cssVars()
 
-const Layout = ({ carrier, children }) => {
+const Layout = ({ children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -23,21 +23,13 @@ const Layout = ({ carrier, children }) => {
           }
         }
       `}
-      render={() => (
-        <Provider carrier={carrier} defaultCarrier="dnb">
-          <App>{children}</App>
-        </Provider>
-      )}
+      render={() => <App>{children}</App>}
     />
   )
 }
 
 Layout.propTypes = {
-  carrier: PropTypes.string,
   children: PropTypes.node.isRequired
-}
-Layout.defaultProps = {
-  carrier: null
 }
 
 export default Layout

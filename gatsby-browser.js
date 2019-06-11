@@ -4,4 +4,13 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+import React from 'react'
+import PropTypes from 'prop-types'
+import Provider from './src/hacked-ffe/Provider'
+
+export const wrapRootElement = ({ element }) => {
+  return <Provider defaultCarrier="ffe">{element}</Provider>
+}
+wrapRootElement.propTypes = {
+  element: PropTypes.node.isRequired
+}

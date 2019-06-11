@@ -35,11 +35,11 @@ Section.propTypes = {
 }
 
 const IndexPage = () => {
-  const { carrier, setCarrier } = useContext(Context)
+  const { carrier } = useContext(Context)
 
   return (
-    <>
-      <H1>Eufemia / FFE</H1>
+    <Layout>
+      <H1>{(carrier === 'dnb' && 'Eufemia') || 'FFE'}</H1>
       <P>
         This is a simple POC of how to use Eufemia and FFE components in
         single wrapper components.
@@ -53,7 +53,7 @@ const IndexPage = () => {
         <Button
           leftIcon={<Bell />}
           onClick={() => {
-            setCarrier(carrier === 'dnb' ? 'ffe' : 'dnb')
+            console.log('onClick')
           }}
         >
           Button
@@ -91,13 +91,8 @@ const IndexPage = () => {
           Checkbox
         </Checkbox>
       </Section>
-    </>
+    </Layout>
   )
 }
 
-const HOC = () => (
-  <Layout>
-    <IndexPage />
-  </Layout>
-)
-export default HOC
+export default IndexPage
