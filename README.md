@@ -1,5 +1,7 @@
 # POC of Eufemia / FFE
 
+👉 [Demo](https://codesandbox.io/embed/github/tujoworker/eufemia-ffe/tree/master/)
+
 This is a simple POC of how to use Eufemia and FFE components in
 single wrapper components.
 
